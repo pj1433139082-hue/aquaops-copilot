@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">AquaOps public API ABC response contract</title>
+  <desc id="desc">A safe aggregate view of a real public API smoke response.</desc>
+  <rect width="1280" height="560" rx="18" fill="#111827"/>
+  <rect x="0" y="0" width="1280" height="70" rx="18" fill="#1f2937"/>
+  <text x="42" y="44" fill="#e0f2fe" font-family="Segoe UI, sans-serif" font-size="25" font-weight="700">AquaOps · public Agent API</text>
+  <text x="42" y="116" fill="#67e8f9" font-family="Consolas, monospace" font-size="21">POST /v1/agent/runs</text>
+  <text x="42" y="154" fill="#94a3b8" font-family="Consolas, monospace" font-size="19">mode=operations · public synthetic question · X-Request-ID=trace-only</text>
+  <line x1="42" y1="184" x2="1238" y2="184" stroke="#374151" stroke-width="2"/>
+  <text x="42" y="228" fill="#86efac" font-family="Consolas, monospace" font-size="22">HTTP 200   status: completed</text>
+  <text x="42" y="278" fill="#f8fafc" font-family="Consolas, monospace" font-size="22">evidence_count: 6</text>
+  <text x="42" y="318" fill="#f8fafc" font-family="Consolas, monospace" font-size="22">evidence_fields: chunk_id, source_url, source_version</text>
+  <text x="42" y="358" fill="#f8fafc" font-family="Consolas, monospace" font-size="22">answer_contract: A / B / C</text>
+  <text x="42" y="398" fill="#f8fafc" font-family="Consolas, monospace" font-size="22">requires_human_review: true</text>
+  <rect x="42" y="432" width="1196" height="64" rx="10" fill="#172554" stroke="#38bdf8" stroke-width="2"/>
+  <text x="66" y="472" fill="#bae6fd" font-family="Segoe UI, sans-serif" font-size="20">Safety boundary: public evidence only · read-only · no device control</text>
+  <text x="42" y="532" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="18">Captured from the offline public demo; identifiers and raw evidence text are intentionally omitted.</text>
+</svg>

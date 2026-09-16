@@ -1,0 +1,24 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+
+data/private/
+data/public/*
+!data/public/README.md
+!data/public/sources.json
+
+# Local-only private-data artifacts. The operational root stays outside Git.
+*.private.json
+*.private.json.tmp
+_private_local/
+reports/private/
+secrets/
+
+# Local planning state and generated artifacts never belong in a public tree.
+.planning/
+artifacts/
+.pytest_cache/
+
+# Reproducible local public-demo index and aggregate reports.
+artifacts/public-demo/

@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.5.30"
+      - run: uv sync --locked --all-groups
+      - run: uv run --locked ruff check src tests
+      - run: uv run --locked pytest -q tests
+      - run: docker build --target backend -t aquaops-backend:ci .
+      - run: >-
+          docker run --rm aquaops-backend:ci python -c
+          "import aquaops; from aquaops.api.app import create_app; assert create_app"
+      - run: docker build --target worker -t aquaops-worker:ci .
+      - run: >-
+          docker run --rm aquaops-worker:ci python -c
+          "import sentence_transformers, torch, transformers; from aquaops.tasks.jobs import create_registered_public_ingestion_handler; assert create_registered_public_ingestion_handler"

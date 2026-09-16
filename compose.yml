@@ -1,0 +1,95 @@
+services:
+  postgres:
+    image: postgres:16@sha256:95206741a5b214807675e14165369d05b93a9cf692223b616d07cca227e74b0b
+    environment:
+      POSTGRES_DB: aquaops
+      POSTGRES_USER: aquaops
+      POSTGRES_PASSWORD: ${AQUAOPS_POSTGRES_PASSWORD:?AQUAOPS_POSTGRES_PASSWORD must be set}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aquaops -d aquaops"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine@sha256:c5e375abb885e6b2021c0377879e4890bf76f9065b8922ffc113f2b226b9fc17
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  qdrant:
+    image: qdrant/qdrant:v1.18.2@sha256:75eab8c4ba42096724fdcfde8b4de0b5713d529dde32f285a1f86fdcb2c9e50c
+    healthcheck:
+      test:
+        ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/6333' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - qdrant-data:/qdrant/storage
+
+  migrate:
+    build:
+      context: .
+      target: backend
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment: &aquaops-environment
+      AQUAOPS_ENVIRONMENT: development
+      AQUAOPS_DATABASE_URL: postgresql+psycopg://aquaops:${AQUAOPS_POSTGRES_PASSWORD:?AQUAOPS_POSTGRES_PASSWORD must be set}@postgres:5432/aquaops
+      AQUAOPS_REDIS_URL: redis://redis:6379/0
+      AQUAOPS_QDRANT_URL: http://qdrant:6333
+      AQUAOPS_JWT_SECRET: ${AQUAOPS_JWT_SECRET:?AQUAOPS_JWT_SECRET must be set}
+      AQUAOPS_PUBLIC_DEMO_CORPUS_PATH: /app/data/rag/public-demo/corpus.json
+
+  api:
+    build:
+      context: .
+      target: backend
+    command: ["uvicorn", "aquaops.api.app:create_app", "--factory", "--host", "0.0.0.0", "--port", "8000"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    environment: *aquaops-environment
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    ports:
+      - "8000:8000"
+
+  worker:
+    profiles: ["model-worker"]
+    build:
+      context: .
+      target: worker
+    command: ["celery", "-A", "aquaops.tasks.celery_app:celery_app", "worker", "--loglevel=INFO", "--concurrency=1"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    volumes:
+      - huggingface-model-cache:/home/aquaops/.cache/huggingface
+    environment:
+      <<: *aquaops-environment
+      AQUAOPS_MODEL_LOCAL_FILES_ONLY: "false"
+
+volumes:
+  postgres-data:
+  qdrant-data:
+  huggingface-model-cache:

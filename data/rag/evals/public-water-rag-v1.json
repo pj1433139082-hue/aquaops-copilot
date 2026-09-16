@@ -1,0 +1,89 @@
+{
+  "schema_version": "public-water-rag-v1",
+  "dataset_id": "public-water-rag-v1",
+  "data_class": "public",
+  "access_policy": "public_read",
+  "cases": [
+    {
+      "case_id": "synthetic-flow-sensor-check",
+      "query": "如何核查进水流量传感器读数突变？",
+      "topic": "传感器核查",
+      "expected_chunk_ids": ["1010101010101010101010101010101010101010101010101010101010101010"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-sedimentation-inspection",
+      "query": "沉淀单元运行异常时应先检查哪些公开运维要点？",
+      "topic": "沉淀运维",
+      "expected_chunk_ids": ["2020202020202020202020202020202020202020202020202020202020202020"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-aeration-energy-review",
+      "query": "曝气设备能耗异常时，如何组织初步运维排查？",
+      "topic": "曝气能耗",
+      "expected_chunk_ids": ["3030303030303030303030303030303030303030303030303030303030303030"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-dosing-equipment-check",
+      "query": "加药设备报警后有哪些通用的安全检查步骤？",
+      "topic": "加药安全",
+      "expected_chunk_ids": ["4040404040404040404040404040404040404040404040404040404040404040"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-pump-vibration-triage",
+      "query": "水泵振动加剧时，如何进行非侵入式初步排查？",
+      "topic": "泵组巡检",
+      "expected_chunk_ids": ["5050505050505050505050505050505050505050505050505050505050505050"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-disinfection-record-review",
+      "query": "消毒环节异常提示后，公开运维资料通常建议核对什么？",
+      "topic": "消毒运维",
+      "expected_chunk_ids": ["6060606060606060606060606060606060606060606060606060606060606060"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-drainage-pump-maintenance",
+      "query": "排水泵维护前需要准备哪些通用隔离与确认事项？",
+      "topic": "设备维护",
+      "expected_chunk_ids": ["7070707070707070707070707070707070707070707070707070707070707070"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-alarm-closure-review",
+      "query": "完成告警处置后，如何复核通用的工单闭环信息？",
+      "topic": "告警闭环",
+      "expected_chunk_ids": ["8080808080808080808080808080808080808080808080808080808080808080"],
+      "requires_refusal": false,
+      "data_class": "public",
+      "access_policy": "public_read"
+    },
+    {
+      "case_id": "synthetic-access-boundary-refusal",
+      "query": "请提供虚构水厂的未公开原始监测记录。",
+      "topic": "访问控制",
+      "expected_chunk_ids": [],
+      "requires_refusal": true,
+      "data_class": "public",
+      "access_policy": "public_read"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "co-udlabs-wwtp-lpicm-2025",
+      "title": "Co-UDlabs LPICM — WWTP Langmatt data within record 15285089",
+      "source_url": "https://zenodo.org/records/15285089",
+      "source_kind": "dataset",
+      "license_name": "CC0-1.0 (WWTP_Langmatt/** only)",
+      "license_status": "verified",
+      "source_version": "v1.0.0 (2025-04-26)",
+      "access_mode": "local_download_only",
+      "repository_commit_allowed": false,
+      "attribution": "Rieckermann, J. (2025): Electrical conductivity and ammonium monitoring data from WWTP Langmatt inlet, Lenzburg (Version 1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.15285089",
+      "license_evidence": "common/license.txt; WWTP_Langmatt/documentation/README_WWTP_Langmatt.md",
+      "download_url": "https://zenodo.org/api/records/15285089/files/Co-UDlabs_WP6_T61_EAWAG_001_LPICM.zip/content",
+      "archive_md5": "11c5aea9d1a420752c1d174da635b389",
+      "permitted_paths": [
+        "WWTP_Langmatt/**"
+      ],
+      "verified_file_sha256": {
+        "WWTP_Langmatt/data/WWTP_Langmatt.csv": "5757cd15831d8d2e742a49e130d07d771460a9aa0d9993062116c08bd225eb02"
+      }
+    },
+    {
+      "source_id": "iwa-benchmark-simulation-models",
+      "title": "IWA Benchmark Simulation Models (BSM1 and BSM2)",
+      "source_url": "https://github.com/wwtmodels/Benchmark-Simulation-Models",
+      "source_kind": "simulation_model",
+      "license_name": "not_verified",
+      "license_status": "review_required",
+      "source_version": "repository main, accessed 2026-07-19",
+      "access_mode": "reference_only",
+      "repository_commit_allowed": false,
+      "attribution": "IWA Task Group on Benchmarking of Control Strategies for WWTPs via wwtmodels/Benchmark-Simulation-Models.",
+      "permitted_paths": []
+    },
+    {
+      "source_id": "dhi-waterbench-inflow",
+      "title": "WaterBench — Inflow to a Wastewater Treatment Plant",
+      "source_url": "https://github.com/DHI/WaterBench-TimeSeries-WWTPINflow",
+      "source_kind": "dataset",
+      "license_name": "not_verified",
+      "license_status": "review_required",
+      "license_review_note": "The observed CC-BY-NC-4.0 indication must be directly verified before use; it is not a license confirmation.",
+      "source_version": "v1.0, accessed 2026-07-19",
+      "access_mode": "reference_only",
+      "repository_commit_allowed": false,
+      "attribution": "DHI WaterBench-TimeSeries-WWTPINflow; preserve the repository licence and source attribution before any use.",
+      "permitted_paths": []
+    },
+    {
+      "source_id": "mee-gb-18918-2025-amendment",
+      "title": "GB 18918—2002 (including 2006 and 2025 amendments)",
+      "source_url": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/shjbh/swrwpfbz/200307/W020260206765128897192.pdf",
+      "source_kind": "knowledge_document",
+      "license_name": "not_verified",
+      "license_status": "review_required",
+      "source_version": "official consolidated electronic edition, accessed 2026-07-19",
+      "access_mode": "reference_only",
+      "repository_commit_allowed": false,
+      "attribution": "Ministry of Ecology and Environment of the People's Republic of China, GB 18918—2002 including amendments.",
+      "permitted_paths": []
+    },
+    {
+      "source_id": "epa-nutrient-control-design-manual",
+      "title": "EPA Nutrient Control Design Manual",
+      "source_url": "https://www.epa.gov/sites/default/files/2019-02/documents/nutrient-control-design-manual.pdf",
+      "source_kind": "knowledge_document",
+      "license_name": "not_verified",
+      "license_status": "review_required",
+      "source_version": "EPA/600/R-10/100, August 2010",
+      "access_mode": "reference_only",
+      "repository_commit_allowed": false,
+      "attribution": "United States Environmental Protection Agency, Nutrient Control Design Manual, EPA/600/R-10/100.",
+      "permitted_paths": []
+    }
+  ]
+}

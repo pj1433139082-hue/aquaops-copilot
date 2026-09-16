@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">AquaOps public RAG smoke test</title>
+  <desc id="desc">Aggregate-only output from the public offline Agent, API and MCP smoke test.</desc>
+  <rect width="1280" height="560" rx="18" fill="#0b1220"/>
+  <rect x="0" y="0" width="1280" height="68" rx="18" fill="#17233a"/>
+  <circle cx="34" cy="34" r="9" fill="#ff6b6b"/>
+  <circle cx="64" cy="34" r="9" fill="#ffd166"/>
+  <circle cx="94" cy="34" r="9" fill="#06d6a0"/>
+  <text x="132" y="42" fill="#dbeafe" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700">AquaOps · public RAG smoke</text>
+  <text x="42" y="108" fill="#7dd3fc" font-family="Consolas, monospace" font-size="21">&gt; python scripts/smoke_public_rag_demo.py --offline</text>
+  <text x="42" y="154" fill="#86efac" font-family="Consolas, monospace" font-size="21">{</text>
+  <text x="78" y="190" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"ok": true,</text>
+  <text x="78" y="226" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"chunk_count": 24,</text>
+  <text x="78" y="262" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"agent_evidence_count": 6,</text>
+  <text x="78" y="298" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"api_evidence_count": 6,</text>
+  <text x="78" y="334" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"mcp_evidence_count": 6,</text>
+  <text x="78" y="370" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"citation_sets_match": true,</text>
+  <text x="78" y="406" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"abc_dimension_count": 3,</text>
+  <text x="78" y="442" fill="#f8fafc" font-family="Consolas, monospace" font-size="21">"human_review_required": true</text>
+  <text x="42" y="478" fill="#86efac" font-family="Consolas, monospace" font-size="21">}</text>
+  <text x="42" y="526" fill="#94a3b8" font-family="Segoe UI, sans-serif" font-size="18">Offline · public corpus only · aggregate output · no private plant data</text>
+</svg>
